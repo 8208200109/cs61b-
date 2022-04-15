@@ -18,13 +18,13 @@ import static byog.Core.Game.*;
  *  in either keyboard or input string mode.
  */
 public class Main {
-    public static String c;
+    
     public static void main(String []args)  {
-     if (args.length >= 1) {
+     if (args.length > 1) {
                 System.out.println("Can only have one argument - the input string");
                 System.exit(0);
-            } else if (args.length == 0) {
-              // c = args[0];
+            } else if (args.length == 1) {
+             
                Game game2 = loadWorld();
                 TETile[][] worldState = game2.playWithInputString("ld");
                 if (game2.is_new == 1) {
@@ -41,7 +41,7 @@ public class Main {
 
     public static Game loadWorld() {
         File f = new File("./gameworld.ser");
-        if (f.exists()){ //&& c.charAt(0) != 'n') {
+        if (f.exists()){ 
             try {
                 FileInputStream fs = new FileInputStream(f);
                 ObjectInputStream os = new ObjectInputStream(fs);
